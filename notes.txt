@@ -81,3 +81,74 @@ url patterns
 
 	view passes data to template 
 
+so we can directly send HTTP Response from views.py function
+or 
+we can create separate template/htmlfile inside templates folder and have to configure it in settings.py TEMPLATES > DIRS 
+
+Static Files-
+	images, js, css are static files in django
+	and needs to be configured in settings.py
+
+django apps-
+	django apps can be created to separately create features
+	command python manage.py startapp employees is used
+	register employees app in INSTALLED_APPS property in setting.py
+
+	admin.py is used to display models in djnago panel
+	apps.py application level configuration for app
+	models.py contains field and behaviours, model classes
+	tests.py tests in django projects
+	views.py busineess logic of specific app
+
+django admin panel-
+	is actually a CRUD* user interface of all your models
+
+	python manage.py migrate
+		- creates default db tables which are required in every project
+
+	create admin-
+	python manage.py createsuperuser
+
+	enter username and password
+		prince15
+		prince15
+
+	after user is created python manage.py runserver again and go to localhost/admin route on client
+
+database-
+	django by default comes with sqlite which is a file stored in root directory of project
+
+models-
+	similar to static files there is a special configuration for media files
+
+	employees app 
+		add Model Employee in models.py
+
+migrations-
+	ImageField of models from django.db requires a package named Pillow
+
+	to create tables we need to eun 2 commands-
+		python manage.py makemigrations
+			reads models.py
+			changes or new classes 
+			& create migrations file
+
+		python manage.py migrate
+			this will read migration file and actually make changes to db
+
+	register model in admin
+		admin.site.register(ClassName)
+
+	in django's admin panel we can now do crud operation on this Employee
+
+Media file configuration-
+	every file uploaded by suer is media file and we have to provide configuration for media file. media_url & media_root in settings.py
+	and use these 2 fields in urls.py to serve static files
+
+In django Employee panel we can show name by defining __str__ 
+
+Fetch data from DATABASE-
+	Internally Django ORM will be used-
+	Employee.objects.all()
+	set the returned data in conetxt dict and pass it as 3rd parameter in render function along with req obj and template name and access that data in template file using django template tag
+
