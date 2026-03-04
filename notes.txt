@@ -1,0 +1,83 @@
+create virtual env-
+	python -m venv vir_env_name
+
+install django-
+	pip install django
+
+installed packages-
+	pip freeze 
+
+create django project-
+	django-admin startproject project_name
+
+run dev server-
+	python manage.py runserver
+
+create new project-
+	python manage.py startapp app_name
+
+create new superuser-
+	python manage.py createsuperuser
+
+crete tables
+	python manage.py makemigrations
+
+-----------------------------------------
+
+project level file structure-
+	init
+
+	wsgi
+		web server g.i.
+		deploy on prod server like apache, nginx
+		spec for server should interact with web app
+
+	asgi
+		asynchronus server gateway interface
+
+	urls
+		all endpoints for web app
+		address of resources
+
+	settings
+		all configurations for our project
+
+		BASE_DIR = project root dir
+		SECRET_KEY 
+		DEBUG
+		ALLOWED_HOSTS = domain name for websites for prod
+		INSTALLED_APPS = package & register apps here
+		MIDDLEWARE = perform various func. inbuilt middlewares and custom middleware 
+		ROOT_URLCONF - project.module
+						mysite.urls
+		TEMPLATES - fe templates
+		DATABASES
+		AUTH_PWD_VALIDATORS
+		STATIC_URL - config for static resources
+		DEFAULT_AUTO_FIELD - PRIMARY KEY BIGAUTOFIELD
+
+-----------------------------------------
+
+app level file structure-
+
+-------------------------------------------
+
+DESIGN PATTERN - 
+# MVT - (MODEL, VIEW, TEMPLATE)
+
+	view to db		❌
+	only model to db  	✅
+
+	view -> model -> db 
+					  ↓ view -> template
+
+url patterns
+
+	path() takes endpoint and function
+
+	request -> project level url -> if url pattern exist -> then request will go to corresponding view and its function
+
+	function contains logic to process request and its received by view
+
+	view passes data to template 
+
