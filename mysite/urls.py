@@ -27,7 +27,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 
     # path('home/', views.home),
-    path("", views.home, name='home'),  # home view as the default view for the root URL
+    path("", views.employee_list, name='employee_list'),  # home view as the default view for the root URL
+	
 	path('employees/', include('employees.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

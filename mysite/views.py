@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from employees.models import Employee
 
-def home(request):
+def employee_list(request):
     # return HttpResponse("Home Page")
 
     # return render(request, "home.html")
@@ -14,4 +14,4 @@ def home(request):
         'employees' : employees
     }
 
-    return render(request, "home.html", context)
+    return render(request, "employee_list.html", context)
