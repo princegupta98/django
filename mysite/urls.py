@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from . import views
 
 # for media files uploaded by user
@@ -27,6 +27,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 
     # path('home/', views.home),
-    path("", views.home),  # home view as the default view for the root URL
+    path("", views.home, name='home'),  # home view as the default view for the root URL
+	path('employees/', include('employees.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -150,5 +150,13 @@ In django Employee panel we can show name by defining __str__
 Fetch data from DATABASE-
 	Internally Django ORM will be used-
 	Employee.objects.all()
-	set the returned data in conetxt dict and pass it as 3rd parameter in render function along with req obj and template name and access that data in template file using django template tag
+	set the returned data in conetxt dict and pass it as 3rd parameter in render function along with req obj and template file name and access that data in template file using django template tag
 
+Fetch data from DB for specific django app
+	we can forward request using include from django.urls in project urls.py to app's urls.py
+	we should fetch django app specific data from app's views.
+	we can fetch data and check if its available and raise http error OR we can directly do it using django.shortcuts 
+
+	inside url patterns we can pass 3rd parameter name for specific view which then we can access in other templates with the specified name using {% url 'specified_name' %}
+
+	

@@ -40,7 +40,7 @@
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <!-- <td>{{ emp.id }}</td> -->
-                <td>{{ emp.f_name }}</td>
+                <td><a href=" {% url 'employee_detail' emp.id %}">{{ emp.f_name }}</a></td>
                 <td>{{ emp.l_name }}</td>
                 <td>
                     <img src="{{ emp.photo.url }}" alt="Photo" width="100" class="img-thumbnail">
